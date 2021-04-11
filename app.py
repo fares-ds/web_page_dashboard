@@ -20,7 +20,7 @@ with st.sidebar.header('1. Upload your CSV data'):
 if uploaded_file is not None:
     @st.cache
     def load_csv():
-        return pd.read_csv(uploaded_file, sep=';')
+        return pd.read_csv(uploaded_file)
     
     df = load_csv()
     st.header("**Input DataFrame**")
