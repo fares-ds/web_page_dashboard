@@ -27,10 +27,13 @@ if uploaded_file is not None:
 
     # Select Tickers
     tickers = df["Ticker"].unique().tolist()
-    selected_ticker = st.sidebar.selectbox("Primary Tickers", tickers)
+    # st.write(tickers)
+    selected_ticker = st.selectbox("Primary Tickers", tickers)
+    
     # Select Column
     columns = df.columns.tolist()
-    selected_columns = st.sidebar.multiselect("Columns", columns)
+    selected_columns = st.multiselect("Columns", columns, columns)
+    print(selected_columns)
     st.write(df.loc[df["Ticker"] == selected_ticker, selected_columns])
 else:
     st.info("Awaiting for CSV file to be uploaded.")
